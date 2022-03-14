@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contracts-deployment
+spec:
+  selector:
+    matchLabels:
+      app: contracts
+  template:
+    metadata:
+      labels:
+        app: contracts
+    spec:
+      containers:
+      - name: contracts-container
+        image: 0dda88086f355af982bb0f26a40997/contracts-service:latest
+        ports:
+          - name: contracts-port
+            containerPort: 8080
+        #imagePullPolicy: Never
+      restartPolicy: Always

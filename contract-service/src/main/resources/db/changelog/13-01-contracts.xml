@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <changeSet id="1647225301748-1" author="diegofreitas">
+        <!--sql>
+            CREATE SCHEMA IF NOT EXISTS contracts;
+        </sql-->
+        <createTable schemaName="contracts" tableName="contract">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_contract"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="created_date" type="DATETIME"/>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="account_id" type="BIGINT"/>
+            <column name="amount_currency" type="VARCHAR(3)"/>
+            <column name="amount_value" type="decimal(4,2)"/>
+            <column name="interest_rate" type="DECIMAL"/>
+            <column name="risk_rating" type="VARCHAR(255)"/>
+            <column name="tenure_in_months" type="INT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
